@@ -1,0 +1,61 @@
+<script>
+  function computerplay(){
+    let a = Math.floor(Math.random()*3);
+
+    if (a==1){
+      return 'Rock'
+    }
+    else if (a==2) {
+      return  'Scissors'
+    }
+    else {
+      return 'Paper'
+    }
+  }
+
+function playround(playerS,computerS){
+
+  let player = playerS.toUpperCase();
+  let computer = computerS.toUpperCase();
+
+  if (player == computer){
+    return 'tie'
+  }
+  else if(player=='ROCK' && computer == 'PAPER'
+  || player=='PAPER' && computer =='SCISSORS'
+  || player=='SCISSORS' && computer == 'ROCK'){
+    return computer+" beats "+ player +' computer wins'
+  }
+
+  else if(player=='PAPER' && computer == 'ROCK'
+  || player=='SCISSORS' && computer =='PAPER'
+  || player=='ROCK' && computer == 'SCISSORS'){
+    return  player+" beats "+ computer +' Player wins'
+  }
+
+}
+
+function game(){
+
+  //let score = playround(userenter,computerenter);
+
+  let playerscore = 0 //score.match(/Player.*/)
+  let computerscore = 0 //score.match(/computer.*/)
+
+for (i = 0; i<5; i++){
+  let userenter=prompt("enter your choice");
+  let computerenter = computerplay();
+  let score = playround(userenter,computerenter);
+  if  (score.match(/Player.*/)){
+    playerscore++
+  }
+  else if (score.match(/computer.*/)) {
+    computerscore++
+  }
+}
+return ", "+ playerscore +", "+ computerscore;
+}
+
+console.log(game())
+
+</script>
